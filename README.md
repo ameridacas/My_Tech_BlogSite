@@ -13,6 +13,8 @@ Model-View-Controller (MVC): Tech Blog
 
 #Credits
 
+Heroku-Deploy="https://git.heroku.com/my-tech-blogsite.git"
+
 Github-Deploy="https://ameridacas.github.io/My_Tech_BlogSite/"
 
 Github-Repo="https://github.com/ameridacas/My_Tech_BlogSite/"

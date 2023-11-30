@@ -1,17 +1,17 @@
 [
   {
-    "name": ,
-    "email":,
-    "password": 
+    "name": "Alex",
+    "email": "alex@gmail.com",
+    "password": "123456"
   },
   {
-    "name": ,
-    "email": ,
-    "password": 
+    "name": "John",
+    "email": "john@gmail.com",
+    "password": "123456"
   },
   {
-    "name": ,
-    "email": ,
-    "password": 
+    "name": "Rosa",
+    "email": "rosa@gmail.com",
+    "password": "123456"
   }
 ]
