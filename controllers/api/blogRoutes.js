@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { Blog } = require('../models');
-const { checkLoggedIn } = require('./auth'); 
+const { Blog } = require('../../models');
+const { checkLoggedIn } = require('../../utils/auth'); 
 
 // Route to get all blogs
 router.get('/blogs', checkLoggedIn, async (req, res) => {
