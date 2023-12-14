@@ -2,7 +2,7 @@
   <main class="container container-fluid mt-5">
     {{#if showLogin}}
       <h2>Login to My_Tech_BlogSite</h2>
-      <form action="/login" method="post">
+      <form action="/login" method="post" onsubmit="return redirectToProfile()">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
 
@@ -14,12 +14,9 @@
       <p>Don't have an account? <a href="#" onclick="toggleForm()">Sign up here</a>.</p>
     {{else}}
       <h2>Sign Up for My_Tech_BlogSite</h2>
-      <form action="/signup" method="post">
+      <form action="/signup" method="post" onsubmit="return redirectToProfile()">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
 
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
@@ -31,18 +28,5 @@
   </main>
 </div>
 
-<script>
-  function toggleForm() {
-    const loginForm = document.querySelector('.auth-form h2:contains("Login")');
-    const signupForm = document.querySelector('.auth-form h2:contains("Sign Up")');
-    const showLogin = loginForm && loginForm.length > 0;
-    
-    {{#if showLogin}}
-      {{! Switch to signup form }}
-      document.querySelector('.auth-form').innerHTML = "{{> login-signup showLogin=false}}";
-    {{else}}
-      {{! Switch to login form }}
-      document.querySelector('.auth-form').innerHTML = "{{> login-signup showLogin=true}}";
-    {{/if}}
-  }
-</script>
+<script src="/js/login.js"></script>
+
