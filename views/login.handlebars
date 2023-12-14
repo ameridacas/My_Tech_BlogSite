@@ -1,50 +1,30 @@
-<!-- views/login.handlebars -->
+<div class="flex-column justify-space-around">
+  <header class="display-flex justify-space-between align-center p-2">
+    <h1>
+      <span role="img" aria-label="tech">🔧</span>
+      <a href="/">My_Tech_BlogSite</a>
+    </h1>
+    <nav>
+      <a href="/">Home</a> |
+      <a href="/dashboard">Dashboard</a> |
+      {{#if logged_in}}
+      <a href="/profile">Profile</a> |
+      <button class="no-button" id="logout">Logout</button>
+      {{else}}
+      <a href="/login">Login</a>
+      {{/if}}
+    </nav>
+  </header>
+  <main class="container container-fluid mt-5">
+    <h2>Login to My_Tech_BlogSite</h2>
+    <form action="/login" method="post">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required>
 
-<!DOCTYPE html>
-<html lang="en">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login | My_Tech_BlogSite</title>
-  <link rel="stylesheet" href="/css/style.css">
-</head>
-
-<body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <span role="img" aria-label="tech">🔧</span>
-        <a href="/">My_Tech_BlogSite</a>
-      </h1>
-      <nav>
-        <a href="/">Home</a> |
-        <a href="/dashboard">Dashboard</a> |
-        {{#if logged_in}}
-        <a href="/profile">Profile</a> |
-        <button class="no-button" id="logout">Logout</button>
-        {{else}}
-        <a href="/login">Login</a>
-        {{/if}}
-      </nav>
-    </header>
-    <main class="container container-fluid mt-5">
-      <h2>Login to My_Tech_BlogSite</h2>
-      <form action="/login" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-
-        <button type="submit">Login</button>
-      </form>
-    </main>
-    <footer>
-      <p>&copy; {{currentYear}} My_Tech_BlogSite</p>
-    </footer>
-  </div>
-</body>
-
-</html>
-
+      <button type="submit">Login</button>
+    </form>
+  </main>
+</div>

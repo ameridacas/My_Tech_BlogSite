@@ -1,17 +1,4 @@
-<!-- views/project.handlebars -->
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{product.name}} | My_Tech_BlogSite</title>
-  <link rel="stylesheet" href="/css/style.css">
-</head>
-
-<body>
-  <div class="flex-column justify-space-around">
+<div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
       <h1>
         <span role="img" aria-label="tech">🔧</span>
@@ -29,15 +16,10 @@
       </nav>
     </header>
     <main class="container container-fluid mt-5">
-      <h2>{{product.name}}</h2>
-      <p>{{product.description}}</p>
-      <p>Date Created: {{product.date-created}}</p>
+      <h2>{{blog.name}}</h2>
+      <p>{{blog.description}}</p>
+      <p>Date Created: {{blog.date-created}}</p>
       
     </main>
-    <footer>
-      <p>&copy; {{currentYear}} My_Tech_BlogSite</p>
-    </footer>
   </div>
-</body>
 
-</html>
