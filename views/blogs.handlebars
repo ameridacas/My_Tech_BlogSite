@@ -6,7 +6,7 @@
       </h1>
       <nav>
         <a href="/">Home</a> |
-        <a href="/dashboard">Dashboard</a> |
+        <a href="/blog">Blog</a> |
         {{#if logged_in}}
         <a href="/profile">Profile</a> |
         <button class="no-button" id="logout">Logout</button>
@@ -18,7 +18,7 @@
     <main class="container container-fluid mt-5">
       <h2>{{blog.name}}</h2>
       <p>{{blog.description}}</p>
-      <p>Date Created: {{blog.date-created}}</p>
+      <p>Date Created: {{blog.date_created}}</p>
       
     </main>
   </div>

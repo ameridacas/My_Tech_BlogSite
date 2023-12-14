@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{pageTitle}}</title>
+  <title>My_Tech_BlogSite</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -17,7 +17,7 @@
       </h1>
       <nav>
         <a href="/">Home</a> |
-        <a href="/dashboard">Dashboard</a> |
+        <a href="/Blog">Blog</a> |
         {{#if logged_in}}
         <a href="/profile">Profile</a> |
         <button class="no-button" id="logout">Logout</button>
@@ -30,17 +30,19 @@
       <h2>Welcome to My_Tech_BlogSite</h2>
       
       <!-- List of blog posts -->
-      <ul class="blog-posts">
-        {{#each blogPosts}}
-        <li>
-          <h3>{{title}}</h3>
-          <p>{{content}}</p>
-        </li>
-        {{/each}}
-      </ul>
+      {{#each blogs as |blog|}}
+      <div class="blog-posts">
+        <div>
+          <a href="/blog/{{blog.id}}">
+          <h3>{{blog.title}}</h3>
+          <p>{{blog.description}}</p>
+        </div>
+        </a>
+      </div>
+      {{/each}}
     </main>
     <footer>
-       <p>&copy; {{currentYear}} My_Tech_BlogSite</p>
+       <p>&copy; My_Tech_BlogSite Created By {{user.name}} on {{currentDate blog.date_created}}</p>
     </footer>
   </div>
 </body>
