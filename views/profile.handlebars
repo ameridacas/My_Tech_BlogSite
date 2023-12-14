@@ -1,30 +1,27 @@
-<div class="flex-column justify-space-around">
-  <header class="display-flex justify-space-between align-center p-2">
-    <h1>
-      <span role="img" aria-label="tech">🔧</span>
-      <a href="/">My_Tech_BlogSite</a>
-    </h1>
-    <nav>
-      <a href="/">Home</a> |
-      <a href="/Blog">Blog</a> |
-      {{#if logged_in}}
-      <a href="/profile">Profile</a> |
-      <button class="no-button" id="logout">Logout</button>
-      {{else}}
-      <a href="/login">Login</a>
-      {{/if}}
-    </nav>
-  </header>
+<div>
   <main class="container container-fluid mt-5">
     <h2>User Profile</h2>
     {{#if logged_in}}
-    <p>Welcome, {{user.name}}!</p>
-    <p>Current amount of blogs are {{blog.length}}</p>
-    <h3>{{blog.title}}</h3>
-    <p>{{blog.description}}</p>
+      <p>Welcome, {{user.username}}!</p>
+      <p>Current amount of blogs are {{blogs.length}}</p>
+      
+      {{#if blogs.length}}
+        <h3>Your Blogs:</h3>
+        <ul>
+          {{#each blogs}}
+            <li>
+              <h4>{{this.title}}</h4>
+              <p>{{this.description}}</p>
+              <p>Date Created: {{this.date_created}}</p>
+            </li>
+          {{/each}}
+        </ul>
+      {{else}}
+        <p>You haven't written any blogs yet.</p>
+      {{/if}}
 
     {{else}}
-    <p>Please log in to view your profile.</p>
+      <p>Please log in to view your profile.</p>
     {{/if}}
   </main>
 </div>

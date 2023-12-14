@@ -1,13 +1,13 @@
 const router = require('express').Router();
 const { Blog, User } = require('../models');
 
-router.get('/', async (req, res) => {
+router.get('/blogs', async (req, res) => {
   try {
     const blogData = await Blog.findAll({
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['username'],
         },
       ],
     });
@@ -24,13 +24,13 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/blog/:id', async (req, res) => {
+router.get('/blogs/:id', async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['username'],
         },
       ],
     });
@@ -48,7 +48,7 @@ router.get('/blog/:id', async (req, res) => {
 
 router.get('/profile', async (req, res) => {
   try {
-    // If the user is not logged in, redirect to the login
+    // Iredirect to the login if the user is not logged in
     if (!req.session.logged_in) {
       res.redirect('/login');
       return;

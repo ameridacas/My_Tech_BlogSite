@@ -20,7 +20,7 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    username: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -56,15 +56,15 @@ User.init(
   },
   {
     hooks: {
-      beforeCreate: async (newUserData) => {
-        newUserData.password = await User.hashPassword(newUserData.password);
-        return newUserData;
+      beforeCreate: async (newUser) => {
+        newUser.password = await User.hashPassword(newUser.password);
+        return newUser;
       },
-      beforeUpdate: async (updatedUserData) => {
-        if (updatedUserData.changed('password')) {
-          updatedUserData.password = await User.hashPassword(updatedUserData.password);
+      beforeUpdate: async (updateUser) => {
+        if (updateUser.changed('password')) {
+          updateUser.password = await User.hashPassword(updateUser.password);
         }
-        return updatedUserData;
+        return updateUser;
       },
     },
     sequelize,

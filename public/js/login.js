@@ -1,34 +1,26 @@
-const loginFormHandler = async (event) => {
-  event.preventDefault();
-
-  // Collect values from the login form
-  const name = document.querySelector('#name-login').value.trim();
+const loginFormHandler = async () => {
+  const name = document.querySelector('#username-login').value.trim();
   const email = document.querySelector('#email-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
 
   if (name && email && password) {
-    // Send a POST request to the API endpoint
     const response = await fetch('/api/users/login', {
       method: 'POST',
-      body: JSON.stringify({ name, email, password }),
+      body: JSON.stringify({ username, email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
-      // If successful, redirect the browser to the profile page
       document.location.replace('/profile');
     } else {
-      // Handle unsuccessful login, e.g., display an error message
       alert('Login failed. Please check your username and password.');
     }
   }
+  return false;
 };
 
-
-const signupFormHandler = async (event) => {
-  event.preventDefault();
-
-  const name = document.querySelector('#name-signup').value.trim();
+const signupFormHandler = async () => {
+  const name = document.querySelector('#username-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
 
@@ -45,12 +37,33 @@ const signupFormHandler = async (event) => {
       alert(response.statusText);
     }
   }
+  return false;
 };
 
+function redirectToProfile() {
+  window.location.href = "/profile";
+  return false; 
+}
+
+function toggleForm() {
+  const loginForm = document.querySelector('#login-form');
+  const signupForm = document.querySelector('#signup-form');
+  const showLogin = loginForm.style.display !== 'none';
+
+  if (showLogin) {
+    loginForm.style.display = 'none';
+    signupForm.style.display = 'block';
+  } else {
+    loginForm.style.display = 'block';
+    signupForm.style.display = 'none';
+  }
+}
+
 document
-  .querySelector('.login-form')
+  .querySelector('#login-form')
   .addEventListener('submit', loginFormHandler);
 
 document
-  .querySelector('.signup-form')
+  .querySelector('#signup-form')
   .addEventListener('submit', signupFormHandler);
+

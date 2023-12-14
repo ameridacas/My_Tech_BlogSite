@@ -1,25 +1,20 @@
-<div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <span role="img" aria-label="tech">🔧</span>
-        <a href="/">My_Tech_BlogSite</a>
-      </h1>
-      <nav>
-        <a href="/">Home</a> |
-        <a href="/blog">Blog</a> |
-        {{#if logged_in}}
-        <a href="/profile">Profile</a> |
-        <button class="no-button" id="logout">Logout</button>
-        {{else}}
-        <a href="/login">Login</a>
-        {{/if}}
-      </nav>
-    </header>
-    <main class="container container-fluid mt-5">
-      <h2>{{blog.name}}</h2>
-      <p>{{blog.description}}</p>
-      <p>Date Created: {{blog.date_created}}</p>
-      
-    </main>
-  </div>
+<div>
+  <main class="container container-fluid mt-5">
+    <h2>Your Blogs</h2>
+    
+    {{#each blogs}}
+      <div class="blog-entry">
+        <h3>{{this.title}}</h3>
+        <p>{{this.description}}</p>
+        <p>Date Created: {{this.date_created}}</p>
+      </div>
+    {{/each}}
+
+    <div class="mt-3">
+      <a href="/">Go to Home</a> |
+      <a href="/logout">Logout</a>
+    </div>
+  </main>
+</div>
+
 
