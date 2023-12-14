@@ -1,37 +1,42 @@
-const router = require('express').Router();
-const { Blog } = require('../../models');
-const withAuth = require('../../utils/auth');
+const express = require('express');
+const router = express.Router();
+const { Blog } = require('../models');
+const { checkLoggedIn } = require('./auth'); 
 
-router.post('/', withAuth, async (req, res) => {
+// Route to get all blogs
+router.get('/blogs', checkLoggedIn, async (req, res) => {
   try {
-    const newProject = await Project.create({
-      ...req.body,
-      user_id: req.session.user_id,
+    const blogs = await Blog.findAll({
+      // Include any necessary associations or conditions
     });
 
-    res.status(200).json(newProject);
-  } catch (err) {
-    res.status(400).json(err);
+    res.render('blogs', { blogs });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
   }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
+// Route to render the form for creating a new blog
+router.get('/blogs/create', checkLoggedIn, (req, res) => {
+  res.render('create-blog');
+});
+
+// Route to create a new blog
+router.post('/blogs/create', checkLoggedIn, async (req, res) => {
   try {
-    const projectData = await Project.destroy({
-      where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
-      },
+    const { name, description } = req.body;
+    const user_id = req.session.user_id;
+    const newBlog = await Blog.create({
+      name,
+      description,
+      user_id,
     });
 
-    if (!projectData) {
-      res.status(404).json({ message: 'No project found with this id!' });
-      return;
-    }
-
-    res.status(200).json(projectData);
-  } catch (err) {
-    res.status(500).json(err);
+    res.redirect('/blogs'); 
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
   }
 });
 
