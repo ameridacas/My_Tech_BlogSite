@@ -6,9 +6,7 @@ const { checkLoggedIn } = require('../../utils/auth');
 // Route to get all blogs
 router.get('/blogs', checkLoggedIn, async (req, res) => {
   try {
-    const blogs = await Blog.findAll({
-      // Include any necessary associations or conditions
-    });
+    const blogs = await Blog.findAll({});
 
     res.render('blogs', { blogs });
   } catch (error) {

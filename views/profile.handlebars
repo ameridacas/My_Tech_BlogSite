@@ -19,7 +19,10 @@
     <h2>User Profile</h2>
     {{#if logged_in}}
     <p>Welcome, {{user.name}}!</p>
-    <!-- Display user details or additional profile information here -->
+    <p>Current amount of blogs are {{blog.length}}</p>
+    <h3>{{blog.title}}</h3>
+    <p>{{blog.description}}</p>
+
     {{else}}
     <p>Please log in to view your profile.</p>
     {{/if}}
