@@ -2,16 +2,16 @@
   {
     "name": "Alex",
     "email": "alex@gmail.com",
-    "password": "123456"
+    "password": "P@ssword1"
   },
   {
     "name": "John",
     "email": "john@gmail.com",
-    "password": "123456"
+    "password": "Secret123"
   },
   {
     "name": "Rosa",
     "email": "rosa@gmail.com",
-    "password": "123456"
+    "password": "Strong!Pass"
   }
 ]

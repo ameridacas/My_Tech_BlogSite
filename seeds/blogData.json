@@ -1,22 +1,27 @@
 [
   {
-    "name": "Introduction to JavaScript",
-    "description": "Learn the basics of JavaScript programming language."
+    "title": "Introduction to JavaScript",
+    "description": "Learn the basics of JavaScript programming language.",
+    "user_id": "1"
   },
   {
-    "name": "Web Development Best Practices",
-    "description": "Explore best practices for building modern web applications."
+    "title": "Web Development Best Practices",
+    "description": "Explore best practices for building modern web applications.",
+    "user_id": "2"
   },
   {
-    "name": "Node.js Fundamentals",
-    "description": "Discover the fundamentals of server-side JavaScript with Node.js."
+    "title": "Node.js Fundamentals",
+    "description": "Discover the fundamentals of server-side JavaScript with Node.js.",
+    "user_id": "3"
   },
   {
-    "name": "React.js Tutorial",
-    "description": "Build interactive user interfaces with the React.js library."
+    "title": "React.js Tutorial",
+    "description": "Build interactive user interfaces with the React.js library.",
+    "user_id": "1"
   },
   {
-    "name": "Databases and SQL",
-    "description": "An overview of databases and SQL for web developers."
+    "title": "Databases and SQL",
+    "description": "An overview of databases and SQL for web developers.",
+    "user_id": "3"
   }
 ]

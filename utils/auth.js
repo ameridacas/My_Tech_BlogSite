@@ -6,6 +6,6 @@ const checkLoggedIn = (req, res, next) => {
   }
 };
 
-module.exports = { checkLoggedIn };
+module.exports = checkLoggedIn;
 
 
